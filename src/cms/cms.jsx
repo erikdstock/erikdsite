@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import { StyleSheetManager } from "styled-components"
+import { StyleSheetManager, createGlobalStyle } from "styled-components"
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
-import { Theme, LayoutComponents } from "../Theme"
+import { Theme, LayoutComponents, GlobalStyle } from "../Theme"
 import { FileSystemBackend } from "netlify-cms-backend-fs"
 import CMS, { init } from "netlify-cms"
 
@@ -50,6 +50,10 @@ const ThemedPreview = props => (
   </Theme>
 )
 
+const ImportFonts = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Fira+Mono|Karma:400,700|Lato:400,700');
+`
+
 // Must inject styles into iframe:
 // https://github.com/netlify/netlify-cms/issues/793#issuecomment-425055513
 const PreviewWindow = props => {
@@ -58,7 +62,11 @@ const PreviewWindow = props => {
 
   return (
     <StyleSheetManager target={iframeHeadElem}>
-      <ThemedPreview {...props} />
+      <>
+        <ImportFonts />
+        <GlobalStyle />
+        <ThemedPreview {...props} />
+      </>
     </StyleSheetManager>
   )
 }

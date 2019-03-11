@@ -9,7 +9,8 @@
 <h1 align="center">
   Erik's Gatsby 2019 setup
 </h1>
-_Heavily inspired by by https://github.com/damassi/gatsby-starter-typescript-rebass-netlifycms_
+
+_Heavily inspired by https://github.com/damassi/gatsby-starter-typescript-rebass-netlifycms_
 
 # Original Gatsby Starter Boilerplate
 

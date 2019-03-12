@@ -2,9 +2,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby 2019`,
-    description: `A gatsby starter using Typescript, Netlify-CMS, MDX and Netlify
-    Inspired by https://github.com/damassi/gatsby-starter-typescript-rebass-netlifycms`,
+    title: `Erik DS`,
+    description: `Politics, Technology and Culture`,
     author: `@erikdstock`,
   },
   plugins: [

@@ -9,12 +9,12 @@ localhost_development:
 
 backend:
   name: github
-  repo: erikdstock/gatsby-ts-2019 # change
+  repo: erikdstock/erikdsite
   branch: master
 
 media_folder: static/assets
 public_folder: assets
-site_url: https://festive-villani-316b3c.netlify.com
+site_url: https://erik.netlify.com
 publish_mode: editorial_workflow
 
 collections:

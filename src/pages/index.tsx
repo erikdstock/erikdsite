@@ -13,10 +13,12 @@ const IndexPage = ({ data }) => {
     .sort((a, b) => a.node.frontmatter.rawDate - b.node.frontmatter.rawDate)
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        title="Home"
+        keywords={[`technology`, `politics`, `socialism`, `culture`]}
+      />
       <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
+      <p>This is my website</p>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Link style={{}} to={"/about"}>
           <Text color="black" mb={2} fontFamily="sans" fontSize={2}>

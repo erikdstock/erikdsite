@@ -56,46 +56,11 @@ module.exports = {
      */
     // For querying images
     `gatsby-transformer-sharp`,
-    // For querying markdown
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        // CommonMark mode (default: true)
-        // commonmark: true,
-        // Footnotes mode (default: true)
-        // footnotes: true,
-        // Pedantic mode (default: true)
-        // pedantic: true,
-        // GitHub Flavored Markdown mode (default: true)
-        // gfm: true,
-        // Plugins configs
-        plugins: [
-          // Convert absolute image file paths (from netlify-cms) to relative. Required for remark-images to work.
-          // https://www.gatsbyjs.org/packages/gatsby-remark-relative-images/?=gatsby-remark-relative-images
-          // See options ^ For how to convert images from frontmatter if needed
-          {
-            resolve: `gatsby-remark-relative-images`,
-            options: {},
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 820,
-              quality: 90,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
-    },
     // For querying MDX
     {
       resolve: `gatsby-mdx`,
       options: {
-        extensions: [".mdx"], // TODO: Set up about page to use regular remark plugin so both examples are present
+        extensions: [".mdx", ".md"], // TODO: Set up about page to use regular remark plugin so both examples are present
         DefaultMDXLayouts: {
           // define more Layouts here if you like,
           // matching keys to the `name` from a gatsby-source-filesystem config (eg `blog`)

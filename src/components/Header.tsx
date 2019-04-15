@@ -1,33 +1,68 @@
-import { Link } from "gatsby"
 import React from "react"
-import { Box, Text } from "rebass"
+import { Link, graphql, StaticQuery } from "gatsby"
+import styled from "styled-components"
+import { height, HeightProps } from "styled-system"
+import { Flex, Card } from "rebass"
+import Img from "gatsby-image"
+import { H1 } from "./UI"
 
 const Header: React.FunctionComponent<{ siteTitle: string }> = ({
   siteTitle,
 }) => (
-  <Box bg="rebeccapurple" mb="1.45rem">
-    <Box
-      my={0}
-      mx="auto"
-      p="1.45rem 1.0875rem"
-      style={{
-        margin: `0 auto`,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <Link
-        to="/"
-        style={{
-          color: `white`,
-          textDecoration: `none`,
-        }}
+  <HeaderWrapper
+    as="header"
+    height={[175, 300] as any}
+    width={1}
+    flexDirection="column"
+    justifyContent="center"
+    alignItems="center"
+  >
+    <StaticQuery
+      query={graphql`
+        query {
+          placeholderImage: file(relativePath: { eq: "lights.jpg" }) {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `}
+      render={data => (
+        <Img
+          // absolute style has to go on the gatsby-image element, not in the styled-component
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            height: "100%",
+            width: "100%",
+            zIndex: -1,
+          }}
+          fluid={data.placeholderImage.childImageSharp.fluid}
+        />
+      )}
+    />
+    <Link to="/" style={{ textDecoration: "none" }}>
+      <Card
+        border="1px solid"
+        borderColor="gray.6"
+        borderRadius={2}
+        bg="gray.1"
+        p={2}
       >
-        <Text as="h1" fontFamily="sans" style={{ margin: 0 }}>
+        <H1 lineHeight={1} fontFamily="sans" color="white">
           {siteTitle}
-        </Text>
-      </Link>
-    </Box>
-  </Box>
+        </H1>
+      </Card>
+    </Link>
+  </HeaderWrapper>
 )
+
+const HeaderWrapper = styled(Flex)<HeightProps>`
+  position: relative;
+  ${height};
+`
 
 export default Header

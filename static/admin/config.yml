@@ -42,7 +42,7 @@ collections:
           #     default: "Basic",
           #   }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "mdx" }
   # A not-fixed collection uses the `folder` path relative to root
   - name: blog
     label: Blog
@@ -50,31 +50,6 @@ collections:
     folder: content/blog # Where to look and save
     extension: "md" # Format to find and save
     format: "frontmatter" # Files get a yaml frontmatter section (everything but body field)
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {
-          label: "Collection Name",
-          name: "collectionName",
-          widget: "hidden",
-          default: "blog",
-        }
-      # - {
-      #     label: Template Key,
-      #     name: templateKey,
-      #     widget: hidden,
-      #     default: BlogPost,
-      #   }
-      - { label: Title, name: title, widget: string }
-      - { label: Publish Date, name: date, widget: datetime }
-      - { label: Description, name: description, widget: text }
-      - { label: Tags, name: tags, widget: list }
-      - { label: Body, name: body, widget: markdown }
-  - name: mdx
-    label: MDX
-    create: true
-    folder: content/blog
-    extension: "mdx"
-    format: "frontmatter"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {

@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
-import { H2 } from "../Theme"
+import { H2 } from "../components/UI"
 import Layout from "../layouts/SiteLayout"
 import SEO from "../components/SEO"
 

@@ -2,15 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { Box, Text } from "rebass"
 import Layout from "../layouts/SiteLayout"
-import Image from "../components/Image"
 import SEO from "../components/SEO"
 
 const IndexPage = ({ data }) => {
-  const { edges: markdownPosts } = data.allMarkdownRemark
-  const { edges: mdxPosts } = data.allMdx
-  const posts = markdownPosts
-    .concat(mdxPosts)
-    .sort((a, b) => a.node.frontmatter.rawDate - b.node.frontmatter.rawDate)
+  const { edges: posts } = data.allMdx
   return (
     <Layout>
       <SEO
@@ -25,7 +20,6 @@ const IndexPage = ({ data }) => {
             About
           </Text>
         </Link>
-        <Image />
       </div>
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
@@ -35,7 +29,7 @@ const IndexPage = ({ data }) => {
             <Box mt={5} mb={3} key={post.id}>
               <Link
                 style={{ textDecoration: "none", color: "inherit" }}
-                to={post.fields.path}
+                to={post.fields.slug}
               >
                 <Text as="h3" color="black" mb={2} fontFamily="sans">
                   {post.frontmatter.title}
@@ -60,23 +54,6 @@ export default IndexPage
 // these queries don't *need* sort parameters.
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          excerpt(pruneLength: 250)
-          id
-          frontmatter {
-            collectionName
-            title
-            date(formatString: "MMMM DD, YYYY")
-            rawDate: date(formatString: "X")
-          }
-          fields {
-            path
-          }
-        }
-      }
-    }
     allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
@@ -89,7 +66,7 @@ export const pageQuery = graphql`
             rawDate: date(formatString: "X")
           }
           fields {
-            path
+            slug
           }
         }
       }

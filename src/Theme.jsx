@@ -30,8 +30,10 @@ const fonts = {
 const theme = {
   breakpoints: [
     0, // zero represents the default (for mobile-first approach)
-    "48em",
-    "80em",
+    "480px",
+    "720px",
+    "1080px",
+    "1200px",
   ],
   fonts,
   colors,

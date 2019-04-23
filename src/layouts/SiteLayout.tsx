@@ -1,14 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { Box } from "rebass"
-import { maxWidth, MaxWidthProps } from "styled-system"
+import { Box, Flex } from "rebass"
 import Header from "../components/Header"
-import styled from "styled-components"
-
-const PageContent = styled(Box)<MaxWidthProps>`
-  ${maxWidth};
-`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -22,19 +16,24 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <Flex flexDirection="column" style={{ height: "100vh" }}>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <PageContent m="0 auto" maxWidth={["560px"]}>
-          <Box p="0px 1.0875rem 1.45rem">
-            <main>{children}</main>
-          </Box>
-        </PageContent>
-        <footer>
+        <Box
+          as="main"
+          flex="1 0 auto"
+          mx="auto"
+          width={[1, 1, 0.8, 0.6, 0.5]}
+          p="0px 1.0875rem 1.45rem"
+        >
+          {children}
+        </Box>
+
+        <Box as="footer" mt="auto" flex="0 0">
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </>
+        </Box>
+      </Flex>
     )}
   />
 )

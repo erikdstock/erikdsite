@@ -12,4 +12,6 @@ description: Trying to get some thoughts out about this
 
 \- documentation
 
+\- minimizing surface area
+
 \- coffee with ash/alloy/orta?

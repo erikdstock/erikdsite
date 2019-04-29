@@ -46,7 +46,7 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
     />
     <Link to="/" style={{ textDecoration: "none" }}>
       <Card borderRadius={2} bg="white" p={2}>
-        <H1 lineHeight={1} fontFamily="sans" color="gray.1">
+        <H1 mt={0} lineHeight={1} fontFamily="sans" color="gray.1">
           {siteTitle}
         </H1>
       </Card>

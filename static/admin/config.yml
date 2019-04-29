@@ -48,7 +48,7 @@ collections:
     label: Blog
     create: true # Allowed to create new files; used with `folder|extension|format|slug` below (rather than `files` array)
     folder: content/blog # Where to look and save
-    extension: "md" # Format to find and save
+    extension: "mdx" # Format to find and save
     format: "frontmatter" # Files get a yaml frontmatter section (everything but body field)
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:

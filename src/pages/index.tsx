@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
                   {post.frontmatter.date}
                 </Text>
                 <Text color="gray.2">
-                  <i>{post.excerpt}</i>
+                  <i>{post.description}</i>
                 </Text>
               </Link>
             </Box>
@@ -61,6 +61,7 @@ export const pageQuery = graphql`
           id
           frontmatter {
             collectionName
+            description
             title
             date(formatString: "MMMM DD, YYYY")
             rawDate: date(formatString: "X")

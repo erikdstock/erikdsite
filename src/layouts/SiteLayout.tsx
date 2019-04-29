@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
           flex="1 0 auto"
           mx="auto"
           width={[1, 1, 0.8, 0.6, 0.5]}
-          p="0px 1.0875rem 1.45rem"
+          py={3}
         >
           {children}
         </Box>

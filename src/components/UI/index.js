@@ -3,7 +3,7 @@ import * as Rebass from "rebass"
 
 import { BlockQuote } from "./BlockQuote.jsx"
 import { Button } from "./Button"
-import { P, H1, H2, H3, H4 } from "./Text"
+import { P, H1, H2, H3, H4 } from "./Typography"
 
 // MDX elements- see https://gatsby-mdx.netlify.com/guides/customizing-components
 export const MDXLayoutComponents = {

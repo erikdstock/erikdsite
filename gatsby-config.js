@@ -123,7 +123,11 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Fira Mono", "Karma:400,700", "Lato:400,700"],
+          families: [
+            "Fira Mono",
+            "Libre Baskerville:400,700",
+            "Open Sans:400,700",
+          ],
         },
       },
     },

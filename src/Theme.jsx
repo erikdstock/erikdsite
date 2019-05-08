@@ -23,8 +23,8 @@ const colors = {
 
 const fonts = {
   mono: "Fira Mono",
-  sans: "Lato, Helvetica, sans-serif",
-  serif: "Karma, Times, serif",
+  sans: "'Open Sans', Helvetica, sans-serif",
+  serif: "'Libre Baskerville', Times, serif",
 }
 
 const theme = {

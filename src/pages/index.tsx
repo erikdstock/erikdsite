@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { Box, Text } from "rebass"
 import Layout from "../layouts/SiteLayout"
 import SEO from "../components/SEO"
+import { H3, P } from "../components/UI"
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx
@@ -31,15 +32,15 @@ const IndexPage = ({ data }) => {
                 style={{ textDecoration: "none", color: "inherit" }}
                 to={post.fields.slug}
               >
-                <Text as="h3" color="black" mb={2} fontFamily="sans">
+                <H3 as="h3" color="black" mb={2} fontFamily="sans">
                   {post.frontmatter.title}
-                </Text>
+                </H3>
                 <Text color="gray.1" fontSize={2}>
                   {post.frontmatter.date}
                 </Text>
-                <Text color="gray.2">
-                  <i>{post.description}</i>
-                </Text>
+                <P color="gray.2">
+                  <i>{post.frontmatter.description}</i>
+                </P>
               </Link>
             </Box>
           )

@@ -14,6 +14,7 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
     height={[175, 300] as any}
     width={1}
     flexDirection="column"
+    flex="0 0 auto"
     justifyContent="center"
     alignItems="center"
   >
@@ -45,8 +46,8 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
       )}
     />
     <Link to="/" style={{ textDecoration: "none" }}>
-      <Card borderRadius={2} bg="white" p={2}>
-        <H1 mt={0} lineHeight={1} fontFamily="sans" color="gray.1">
+      <Card borderRadius={2} bg="black" p={2}>
+        <H1 mt={0} lineHeight={1} fontFamily="sans" color="gray.7">
           {siteTitle}
         </H1>
       </Card>

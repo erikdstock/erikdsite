@@ -59,7 +59,7 @@ export const themeDig = (path = "") =>
 export const GlobalStyle = createGlobalStyle`
   ${styledNormalize};
   * {
-    font-family: ${fonts.serif};
+    font-family: ${fonts.sans};
   }
   h1,h2,h3 {
     font-family: ${fonts.sans};

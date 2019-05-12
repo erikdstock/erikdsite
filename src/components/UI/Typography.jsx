@@ -10,6 +10,16 @@ export const P = props => (
     {...props}
   />
 )
+export const Li = props => (
+  <Text
+    as="li"
+    color="gray.1"
+    letterSpacing={".03em"}
+    lineHeight="1.5"
+    fontFamily="sans"
+    {...props}
+  />
+)
 
 export const H1 = props => (
   <Heading

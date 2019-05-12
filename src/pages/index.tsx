@@ -13,15 +13,7 @@ const IndexPage = ({ data }) => {
         title="Home"
         keywords={[`technology`, `politics`, `socialism`, `culture`]}
       />
-      <h1>Hi people</h1>
-      <p>This is my website</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Link style={{}} to={"/about"}>
-          <Text color="black" mb={2} fontFamily="sans" fontSize={2}>
-            About
-          </Text>
-        </Link>
-      </div>
+
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .filter(post => post.node.frontmatter.collectionName === "blog")

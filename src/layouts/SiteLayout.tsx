@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-import { Box, Flex } from "rebass"
+import { StaticQuery, graphql, useStaticQuery } from "gatsby"
+import { Main, Footer, Layout as TLayout, Container } from "theme-ui"
 import Header from "../components/Header"
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
+const Layout = ({ children }) => {
+  const data = useStaticQuery(
+    graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
@@ -14,29 +14,23 @@ const Layout = ({ children }) => (
           }
         }
       }
-    `}
-    render={data => (
-      <Flex flexDirection="column" style={{ height: "100vh" }}>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Box
-          as="main"
-          flex="1 0 auto"
-          mx="auto"
-          width={[1, 1, 0.8, 0.6, 0.5]}
-          py={3}
-        >
-          {children}
-        </Box>
+    `
+  )
+  return (
+    <TLayout>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <Main>
+        <Container>{children}</Container>
+      </Main>
 
-        <Box as="footer" mt="auto" flex="0 0">
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Box>
-      </Flex>
-    )}
-  />
-)
+      <Footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      </Footer>
+    </TLayout>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

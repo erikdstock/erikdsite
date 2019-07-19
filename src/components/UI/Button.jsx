@@ -1,7 +1,8 @@
 import React from "react"
 
-import { Button as BaseButton } from "rebass"
+import { Box } from "theme-ui"
 
+// FIXME: button styles using box or something else
 export const Button = ({ variant = "primary", ...props }) => (
-  <BaseButton variant={props.disabled ? "disabled" : variant} {...props} />
+  <Box as="button" variant={props.disabled ? "disabled" : variant} {...props} />
 )

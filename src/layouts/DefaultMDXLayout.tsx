@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
-import { H2 } from "../components/UI"
+import { Styled } from "theme-ui"
 import Layout from "../layouts/SiteLayout"
 import SEO from "../components/SEO"
 
@@ -16,7 +16,7 @@ export default ({ data: { mdx } }) => (
       This from the example is intended to be used if you are writing whole pages from mdx
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     */}
-    <H2>{mdx.frontmatter.title}</H2>
+    <Styled.h2>{mdx.frontmatter.title}</Styled.h2>
     <MDXRenderer>{mdx.code.body}</MDXRenderer>
   </Layout>
 )

@@ -1,9 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Box, Text } from "rebass"
+import { Box, Styled } from "theme-ui"
 import Layout from "../layouts/SiteLayout"
 import SEO from "../components/SEO"
-import { H3, P } from "../components/UI"
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx
@@ -19,20 +18,20 @@ const IndexPage = ({ data }) => {
         .filter(post => post.node.frontmatter.collectionName === "blog")
         .map(({ node: post }) => {
           return (
-            <Box mt={5} mb={3} key={post.id}>
+            <Box sx={{ mt: 5, mb: 3 }} key={post.id}>
               <Link
                 style={{ textDecoration: "none", color: "inherit" }}
                 to={post.fields.slug}
               >
-                <H3 as="h3" color="black" mb={2} fontFamily="sans">
+                <Styled.h3 sx={{ color: "black", mb: 2, fontFamily: "sans" }}>
                   {post.frontmatter.title}
-                </H3>
-                <Text color="gray.1" fontSize={2}>
+                </Styled.h3>
+                <Styled.p sx={{ color: "gray.1", fontSize: 2 }}>
                   {post.frontmatter.date}
-                </Text>
-                <P color="gray.2">
+                </Styled.p>
+                <Styled.p sx={{ color: "gray.2" }}>
                   <i>{post.frontmatter.description}</i>
-                </P>
+                </Styled.p>
               </Link>
             </Box>
           )

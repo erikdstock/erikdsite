@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import CMS, { init } from "netlify-cms"
 import { FileSystemBackend } from "netlify-cms-backend-fs"
-import { StyleSheetManager, createGlobalStyle } from "styled-components"
 
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 
 import { Theme, GlobalStyle } from "../Theme"
-import { MDXLayoutComponents, MDXGlobalComponents } from "../components/UI"
+import { MDXGlobalComponents } from "../components/UI"
+import { Styled } from 'theme-ui'
+import css from "@emotion/css";
 
 // netlify-cms-backend-fs setup for development
 const isDevelopment = process.env.NODE_ENV === "development"
@@ -37,7 +38,7 @@ class ThemedControl extends Component {
 const PreviewLayout = props => (
   <MdxPreview
     mdx={{
-      components: MDXLayoutComponents,
+      components: Styled,
       scope: MDXGlobalComponents,
       mdPlugins: [],
     }}
@@ -46,7 +47,7 @@ const PreviewLayout = props => (
 )
 
 // Gatsby imports these fonts automatically so they must be added here
-const ImportFonts = createGlobalStyle`
+const importFonts = css`
   @import url('https://fonts.googleapis.com/css?family=Fira+Mono|Karma:400,700|Lato:400,700');
   .netlify-cms-widget-mdx-preview {
     padding-top: 30px;
@@ -66,8 +67,8 @@ const ThemedPreview = props => {
   return (
     <StyleSheetManager target={iframeHeadElem}>
       <>
-        <ImportFonts />
-        <GlobalStyle />
+
+        <Global style={importFonts} />
         <Theme>
           <PreviewLayout {...props} />
         </Theme>

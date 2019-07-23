@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import styled from "@emotion/styled"
+import { jsx } from "@emotion/core"
+import { Box, Flex, Heading, Card } from "roses"
+
 import Img from "gatsby-image"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { height, HeightProps } from "styled-system"
-import { jsx, Flex, Styled, Container, Header as THeader } from "theme-ui"
-import { Card } from "../components/UI/Layout"
 
 const Header: React.FunctionComponent<{ siteTitle: string }> = ({
   siteTitle,
@@ -21,12 +21,14 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
     }
   `)
   return (
-    <THeader
+    <Flex
+      as="header"
       sx={{
-        height: ["175px", "300px"],
+        height: ["60px", "100px"],
         flexDirection: "column",
         flex: "0 0 auto",
-        bg: ["gray.2", "gray.5"],
+        py: 1,
+        px: 2,
       }}
     >
       <Flex
@@ -57,11 +59,11 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
 
         <Link to="/" style={{ textDecoration: "none" }}>
           <Card sx={{ borderRadius: 2, bg: "black", p: 2 }}>
-            <Styled.h1
-              sx={{ mt: 0, lineHeight: 1, fontFamily: "sans", color: "gray.7" }}
+            <Heading
+              rx={{ mt: 0, lineHeight: 1, fontFamily: "sans", color: "gray.7" }}
             >
               {siteTitle}
-            </Styled.h1>
+            </Heading>
           </Card>
         </Link>
       </Flex>
@@ -73,14 +75,15 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
         }}
       >
         <Link to={"/about"} style={{ textDecoration: "none" }}>
-          <Styled.h4
+          <Heading
+            as="h4"
             sx={{ color: "black", mb: 2, fontFamily: "sans", fontSize: 2 }}
           >
             About
-          </Styled.h4>
+          </Heading>
         </Link>
       </Flex>
-    </THeader>
+    </Flex>
   )
 }
 

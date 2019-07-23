@@ -1,8 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Box, Styled } from "theme-ui"
+import { Box } from "roses"
 import Layout from "../layouts/SiteLayout"
 import SEO from "../components/SEO"
+import { Styled } from '../components/UI'
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx

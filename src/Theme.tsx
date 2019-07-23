@@ -3,7 +3,7 @@
  */
 
 import React from "react"
-import { RosesTheme as ThemeProvider, RosesThemeObject } from "roses"
+import { RosesTheme as ThemeProvider, RosesThemeObject, defaultTheme } from "roses"
 import { Global } from "@emotion/core"
 
 const gray = {
@@ -40,7 +40,9 @@ const fonts = {
   serif: "'Libre Baskerville', Times, serif",
 }
 
-const theme: RosesThemeObject = {
+export const theme: RosesThemeObject = {
+  ...defaultTheme,
+  breakpoints: ['40em', '52em', '64em'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 
   fonts: {
@@ -50,19 +52,7 @@ const theme: RosesThemeObject = {
   },
 
   colors: {
-    ...colors,
-    text: colors.gray[1],
-    background: "white",
-    primary: colors.blue[2],
-    secondary: colors.red[2],
-    muted: colors.blue[4],
-    accent: colors.red[1],
-    modes: {
-      dark: {
-        background: colors.gray[1],
-        text: "white",
-      },
-    },
+    ...defaultTheme.colors,
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
@@ -83,7 +73,7 @@ const theme: RosesThemeObject = {
         bg: "text",
         color: "primary",
         borderColor: "2px solid",
-        borderRadius: "primary"
+        borderRadius: "primary",
       },
     },
   },
@@ -95,9 +85,8 @@ export const themeDig = (path = "") =>
     .filter(i => i)
     .reduce((acc, current) => acc[current], theme)
 
-
 export const Theme = props => (
-  <>
+  <ThemeProvider theme={theme}>
     <Global
       styles={{
         "*": {
@@ -108,6 +97,6 @@ export const Theme = props => (
         },
       }}
     />
-    <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
-  </>
+    {props.children}
+  </ThemeProvider>
 )

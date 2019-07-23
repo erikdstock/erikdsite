@@ -1,8 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql, useStaticQuery } from "gatsby"
-import { Main, Footer, Layout as TLayout, Container } from "theme-ui"
+import { graphql, useStaticQuery } from "gatsby"
+import { Box } from "roses"
 import Header from "../components/Header"
+import { theme} from '../Theme'
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(
@@ -17,18 +19,26 @@ const Layout = ({ children }) => {
     `
   )
   return (
-    <TLayout>
+    <Box rx={{ minHeight: "100vh" }}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Main>
-        <Container>{children}</Container>
-      </Main>
+      <Box rx={{}} as="main">
+        <Box
+          rx={{
+            maxWidth: theme.breakpoints[2],
+            mx: "auto",
+            bg: ["primary", "secondary", "accent"],
+          }}
+        >
+          {children}
+        </Box>
+      </Box>
 
-      <Footer>
+      <Box as="footer">
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Footer>
-    </TLayout>
+      </Box>
+    </Box>
   )
 }
 

@@ -94,8 +94,8 @@ module.exports = {
      */
     "gatsby-plugin-catch-links",
     "gatsby-plugin-react-helmet",
-    `gatsby-plugin-sharp`,
-    "gatsby-plugin-styled-components",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     {
       resolve: "gatsby-plugin-netlify-cms",

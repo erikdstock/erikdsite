@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import CMS, { init } from "netlify-cms"
 import { FileSystemBackend } from "netlify-cms-backend-fs"
-import { StyleSheetManager, createGlobalStyle } from "styled-components"
 
 import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 
-import { Theme, GlobalStyle } from "../Theme"
-import { MDXLayoutComponents, MDXGlobalComponents } from "../components/UI"
+import { Theme } from "../Theme"
+import { MDXGlobalComponents, Styled } from "../components/UI"
+
+import { Global, css } from "@emotion/core";
 
 // netlify-cms-backend-fs setup for development
 const isDevelopment = process.env.NODE_ENV === "development"
@@ -37,7 +38,7 @@ class ThemedControl extends Component {
 const PreviewLayout = props => (
   <MdxPreview
     mdx={{
-      components: MDXLayoutComponents,
+      components: Styled,
       scope: MDXGlobalComponents,
       mdPlugins: [],
     }}
@@ -46,33 +47,30 @@ const PreviewLayout = props => (
 )
 
 // Gatsby imports these fonts automatically so they must be added here
-const ImportFonts = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Fira+Mono|Karma:400,700|Lato:400,700');
+const importFonts = css`
+  @import url("https://fonts.googleapis.com/css?family=Fira+Mono|Karma:400,700|Lato:400,700");
   .netlify-cms-widget-mdx-preview {
     padding-top: 30px;
   }
   body {
-    padding-top: 24px
+    padding-top: 24px;
   }
 `
 
 // // Must inject styles into iframe:
 // // https://github.com/netlify/netlify-cms/issues/793#issuecomment-425055513
 const ThemedPreview = props => {
-  const iframe = document.querySelector("iframe[class*=PreviewPaneFrame]")
+  // const iframe = document.querySelector("iframe[class*=PreviewPaneFrame]")
 
-  const iframeHeadElem = iframe.contentDocument.head
+  // const iframeHeadElem = iframe.contentDocument.head
 
   return (
-    <StyleSheetManager target={iframeHeadElem}>
-      <>
-        <ImportFonts />
-        <GlobalStyle />
-        <Theme>
-          <PreviewLayout {...props} />
-        </Theme>
-      </>
-    </StyleSheetManager>
+    <>
+      <Theme>
+        <Global styles={importFonts} />
+        <PreviewLayout {...props} />
+      </Theme>
+    </>
   )
 }
 

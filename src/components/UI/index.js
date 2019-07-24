@@ -1,24 +1,10 @@
 // These files must stay js/x because they are also accessed by netlify-cms
-import * as Rebass from "rebass"
 
-import { BlockQuote } from "./BlockQuote.jsx"
-import { Button } from "./Button"
-import { Li, P, H1, H2, H3, H4 } from "./Typography"
-
-// MDX elements- see https://gatsby-mdx.netlify.com/guides/customizing-components
-export const MDXLayoutComponents = {
-  h1: H1,
-  h2: H2,
-  h3: H3,
-  h4: H4,
-  p: P,
-  li: Li,
-  blockquote: BlockQuote,
-}
-
+import { Card, Button } from "roses"
+import { StyledHTML } from "./StyledHTML"
+export const Styled = StyledHTML
 export const MDXGlobalComponents = {
-  ...Rebass,
+  ...StyledHTML,
   Button,
+  Card,
 }
-
-export { Button, P, H1, H2, H3, H4 }

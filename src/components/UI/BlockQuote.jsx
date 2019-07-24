@@ -1,10 +1,10 @@
 import React from "react"
-import styled from "styled-components"
-import { Box } from "rebass"
+import styled from "@emotion/styled"
+import { Box } from "theme-ui"
 import { themeDig } from "../../Theme"
 
 export const BlockQuote = ({ children, ...restProps }) => (
-  <Wrapper my={4} p={2} pl={3} {...restProps}>
+  <Wrapper rx={{ my: 4, p: 2, pl: 3 }} {...restProps}>
     {children}
   </Wrapper>
 )

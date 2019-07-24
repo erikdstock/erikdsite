@@ -3,7 +3,11 @@
  */
 
 import React from "react"
-import { RosesTheme as ThemeProvider, RosesThemeObject, defaultTheme } from "roses"
+import {
+  RosesTheme as ThemeProvider,
+  RosesThemeObject,
+  defaultTheme,
+} from "roses"
 import { Global } from "@emotion/core"
 
 const gray = {
@@ -16,44 +20,46 @@ const gray = {
   "7": "hsl(0,0%,93%)",
 }
 
-const blue = {
-  "1": "#0298D8",
-  "2": "#00b5e5",
-  "3": "#00d5e3",
-  "4": "#048f3d4",
-}
-const red = {
-  "1": "#532e8b",
-  "2": "#b41d89",
-  "3": "#fb2769",
-}
-
 const colors = {
-  gray,
-  blue,
-  red,
+  // text: gray["1"],
+  // background: "white",
+  background: gray["1"],
+  text: "white",
+  // a gray or subdued color for decorative purposes
+  muted: gray["6"],
+  // primary button and link color
+  primary: "#CAA3FF",
+  // secondary color - can be used for hover states
+  secondary: "#EA6AFF",
+  // a contrast color for emphasizing UI
+  accent: "#41EBA3",
+  alert: "#FF8B73",
+  calm: "#6EDFEB",
 }
 
-const fonts = {
+const fontsFamilies = {
   mono: "Fira Mono",
   sans: "'Open Sans', Helvetica, sans-serif",
   serif: "'Libre Baskerville', Times, serif",
 }
 
+const fonts = {
+  ...fontsFamilies,
+  body: fontsFamilies.sans,
+  heading: fontsFamilies.sans,
+}
+const breakpoints = ["40em", "52em", "64em"]
+const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
+
+// console.log(defaultTheme.variants)
+
 export const theme: RosesThemeObject = {
   ...defaultTheme,
-  breakpoints: ['40em', '52em', '64em'],
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  breakpoints,
+  space,
+  fonts,
+  colors,
 
-  fonts: {
-    ...fonts,
-    body: fonts.sans,
-    heading: fonts.sans,
-  },
-
-  colors: {
-    ...defaultTheme.colors,
-  },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
     body: 400,
@@ -67,10 +73,18 @@ export const theme: RosesThemeObject = {
   variants: {
     Button: {
       primary: {
+        color: "background",
         bg: "primary",
+        // "&:hover": { background: colors.secondary },
       },
+      outline: {
+        color: "primary",
+        bg: "background",
+        boxShadow: "inset 0 0 0 2px",
+      },
+
       inverted: {
-        bg: "text",
+        bg: "background",
         color: "primary",
         borderColor: "2px solid",
         borderRadius: "primary",
@@ -91,6 +105,8 @@ export const Theme = props => (
       styles={{
         "*": {
           boxSizing: "border-box",
+          background: colors.background,
+          color: colors.text,
         },
         body: {
           margin: 0,

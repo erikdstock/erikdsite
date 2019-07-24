@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import { Box } from "roses"
 import Layout from "../layouts/SiteLayout"
 import SEO from "../components/SEO"
-import { Styled } from '../components/UI'
+import { Styled } from "../components/UI"
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx
@@ -19,18 +19,14 @@ const IndexPage = ({ data }) => {
         .filter(post => post.node.frontmatter.collectionName === "blog")
         .map(({ node: post }) => {
           return (
-            <Box sx={{ mt: 5, mb: 3 }} key={post.id}>
+            <Box rx={{ mt: 5, mb: 3 }} key={post.id}>
               <Link
                 style={{ textDecoration: "none", color: "inherit" }}
                 to={post.fields.slug}
               >
-                <Styled.h3 sx={{ color: "black", mb: 2, fontFamily: "sans" }}>
-                  {post.frontmatter.title}
-                </Styled.h3>
-                <Styled.p sx={{ color: "gray.1", fontSize: 2 }}>
-                  {post.frontmatter.date}
-                </Styled.p>
-                <Styled.p sx={{ color: "gray.2" }}>
+                <Styled.h3>{post.frontmatter.title}</Styled.h3>
+                <Styled.p>{post.frontmatter.date}</Styled.p>
+                <Styled.p>
                   <i>{post.frontmatter.description}</i>
                 </Styled.p>
               </Link>

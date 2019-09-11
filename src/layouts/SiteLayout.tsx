@@ -18,14 +18,15 @@ const Layout = ({ children }) => {
     `
   )
   return (
-    <Flex rx={{ minHeight: "100vh", flexDirection: "column" }}>
+    <Flex sx={{ minHeight: "100vh", flexDirection: "column" }}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Box rx={{ flex: 1 }} as="main">
+      <Box sx={{ flex: 1 }} as="main">
         <Box
-          rx={{
+          sx={{
             width: ["100%", "90%", "80%"],
-            maxWidth: theme.breakpoints[2],
+            maxWidth: theme.breakpoints[1],
             mx: "auto",
+            px: [3, 2],
           }}
         >
           {children}
@@ -34,7 +35,7 @@ const Layout = ({ children }) => {
 
       <Box
         as="footer"
-        rx={{ width: ["100%", "90%", "80%"], px: [2, 0], py: 1, mx: "auto" }}
+        sx={{ width: ["100%", "90%", "80%"], px: [3, 2], py: 1, mx: "auto" }}
       >
         <Text>
           © {new Date().getFullYear()}, Built with

@@ -70,24 +70,23 @@ export const theme: RosesThemeObject = {
     body: 1.5,
     heading: 1.125,
   },
-  variants: {
+  componentStyles: {
+    ...defaultTheme.componentStyles,
     Button: {
-      primary: {
-        color: "background",
-        bg: "primary",
-        // "&:hover": { background: colors.secondary },
-      },
-      outline: {
-        color: "primary",
-        bg: "background",
-        boxShadow: "inset 0 0 0 2px",
-      },
+      ...defaultTheme.componentStyles.Button,
+      variants: {
+        outline: {
+          color: "primary",
+          bg: "background",
+          boxShadow: "inset 0 0 0 2px",
+        },
 
-      inverted: {
-        bg: "background",
-        color: "primary",
-        borderColor: "2px solid",
-        borderRadius: "primary",
+        inverted: {
+          bg: "background",
+          color: "primary",
+          borderColor: "2px solid",
+          borderRadius: "primary",
+        },
       },
     },
   },

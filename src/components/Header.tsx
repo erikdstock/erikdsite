@@ -2,6 +2,7 @@
 import { jsx } from "@emotion/core"
 import { Flex, Heading, Card, Box } from "roses"
 import { Link } from "gatsby"
+import { themeDig } from "../Theme"
 
 const Header: React.FunctionComponent<{ siteTitle: string }> = ({
   siteTitle,
@@ -9,24 +10,14 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
   return (
     <Box
       as="header"
-      rx={{
+      sx={{
         position: "relative",
         height: ["60px", "100px"],
         py: 1,
-        // ugly drop shadow
-        // "&:after": {
-        //   content: '""',
-        //   position: "absolute",
-        //   width: "100%",
-        //   bottom: "1px",
-        //   zIndex: -1,
-        //   transform: "scale(.9)",
-        //   boxShadow: "0px 0px 8px 2px",
-        // },
       }}
     >
       <Flex
-        rx={{
+        sx={{
           mx: "auto",
           justifyContent: "flex-end",
           alignItems: "center",
@@ -35,13 +26,14 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
           left: 0,
           height: "100%",
           width: ["100%", "90%", "80%"],
-          px: [2, 0],
+          maxWidth: themeDig("breakpoints.1"),
+          px: [3, 2],
         }}
       >
         <Link to="/" style={{ textDecoration: "none", marginRight: "auto" }}>
-          <Card rx={{ bg: "accent", color: "white", p: 2 }}>
+          <Card sx={{ bg: "accent", color: "white", p: 2 }}>
             <Heading
-              rx={{
+              sx={{
                 m: 0,
                 lineHeight: 1,
                 bg: "inherit",
@@ -56,7 +48,7 @@ const Header: React.FunctionComponent<{ siteTitle: string }> = ({
         </Link>
         <Flex as="nav">
           <Link to={"/about"} style={{ textDecoration: "none" }}>
-            <Heading as="h4" rx={{ mb: 2, fontFamily: "sans", fontSize: 2 }}>
+            <Heading as="h4" sx={{ mb: 2, fontFamily: "sans", fontSize: 2 }}>
               About
             </Heading>
           </Link>

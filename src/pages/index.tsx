@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
         .filter(post => post.node.frontmatter.collectionName === "blog")
         .map(({ node: post }) => {
           return (
-            <Box rx={{ mt: 5, mb: 3 }} key={post.id}>
+            <Box sx={{ mt: 5, mb: 3 }} key={post.id}>
               <Link
                 style={{ textDecoration: "none", color: "inherit" }}
                 to={post.fields.slug}

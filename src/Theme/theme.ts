@@ -1,14 +1,5 @@
-/*
- * This file needs to be .jsx because the netlify-cms must consume it.
- */
-
-import React from "react"
-import {
-  RosesTheme as ThemeProvider,
-  RosesThemeObject,
-  defaultTheme,
-} from "roses"
-import { Global } from "@emotion/core"
+import { RosesThemeObject, defaultTheme } from "roses"
+import { styles as htmlStyles } from "./html"
 
 const gray = {
   "1": "hsl(0,0%,32%)",
@@ -51,10 +42,9 @@ const fonts = {
 const breakpoints = ["40em", "52em", "64em"]
 const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
-// console.log(defaultTheme.variants)
-
 export const theme: RosesThemeObject = {
   ...defaultTheme,
+  styles: htmlStyles,
   breakpoints,
   space,
   fonts,
@@ -91,27 +81,3 @@ export const theme: RosesThemeObject = {
     },
   },
 }
-
-export const themeDig = (path = "") =>
-  path
-    .split(".")
-    .filter(i => i)
-    .reduce((acc, current) => acc[current], theme)
-
-export const Theme = props => (
-  <ThemeProvider theme={theme}>
-    <Global
-      styles={{
-        "*": {
-          boxSizing: "border-box",
-          background: colors.background,
-          color: colors.text,
-        },
-        body: {
-          margin: 0,
-        },
-      }}
-    />
-    {props.children}
-  </ThemeProvider>
-)

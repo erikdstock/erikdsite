@@ -1,4 +1,4 @@
-import { RosesThemeObject, defaultTheme } from "roses"
+import { defaultTheme } from "roses"
 import { styles as htmlStyles } from "./html"
 
 const gray = {
@@ -42,7 +42,7 @@ const fonts = {
 const breakpoints = ["40em", "52em", "64em"]
 const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 
-export const theme: RosesThemeObject = {
+export const theme: any = {
   ...defaultTheme,
   styles: htmlStyles,
   breakpoints,

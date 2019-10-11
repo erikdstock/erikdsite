@@ -7,7 +7,7 @@ import { MdxControl, MdxPreview } from "netlify-cms-widget-mdx"
 import { Theme } from "../Theme"
 import { MDXGlobalComponents, Styled } from "../components/UI"
 
-import { Global, css } from "@emotion/core";
+import { Global, css } from "@emotion/core"
 
 // netlify-cms-backend-fs setup for development
 const isDevelopment = process.env.NODE_ENV === "development"

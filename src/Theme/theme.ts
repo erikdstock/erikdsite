@@ -23,7 +23,7 @@ const colors = {
   // secondary color - can be used for hover states
   secondary: "#EA6AFF",
   // a contrast color for emphasizing UI
-  accent: "#41EBA3",
+  accent: "#4ead9c",
   alert: "#FF8B73",
   calm: "#6EDFEB",
 }

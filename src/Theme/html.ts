@@ -49,6 +49,7 @@ export const styles: RosesThemeObject["styles"] = {
     fontFamily: "body",
     fontWeight: "body",
     lineHeight: "body",
+    fontSize: [1, 2],
   },
   li: {
     color: "text",
@@ -59,7 +60,24 @@ export const styles: RosesThemeObject["styles"] = {
   a: { color: "primary" },
   pre: { fontFamily: "monospace", overflowX: "auto" },
   code: { fontFamily: "monospace", fontSize: "inherit" },
-  table: { width: "100%", borderCollapse: "separate", borderSpacing: 0 },
-  th: { textAlign: "left", borderBottomStyle: "solid" },
-  td: { textAlign: "left", borderBottomStyle: "solid" },
+  table: {
+    py: 2,
+    width: "100%",
+    borderCollapse: "separate",
+    borderSpacing: 0,
+    fontFamily: "body",
+    border: "1px solid",
+    borderColor: "text",
+  },
+  th: {
+    textAlign: "center",
+    borderBottomStyle: "solid",
+    borderBottomWidth: "2px",
+  },
+  td: {
+    py: 2,
+    textAlign: "center",
+    borderBottomStyle: "solid",
+    borderBottomWidth: "1px",
+  },
 }

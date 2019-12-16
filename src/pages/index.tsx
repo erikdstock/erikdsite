@@ -13,9 +13,6 @@ const IndexPage = ({ data }) => {
         title="Home"
         keywords={[`technology`, `politics`, `socialism`, `culture`]}
       />
-      <marquee>
-        <Styled.p sx={{ fontStyle: "bold" }}>Work in progress</Styled.p>
-      </marquee>
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .filter(post => post.node.frontmatter.collectionName === "blog")

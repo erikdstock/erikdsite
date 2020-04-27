@@ -23,13 +23,9 @@ if (isDevelopment) {
 // Custom components need refs for validation and thus must be a class.
 // Additionally, after <Theme>, only one child is allowed.
 // See https://github.com/netlify/netlify-cms/issues/1346
-class ThemedControl extends Component {
+class Control extends Component {
   render() {
-    return (
-      <Theme>
-        <MdxControl {...this.props} />
-      </Theme>
-    )
+    return <MdxControl {...this.props} />
   }
 }
 
@@ -38,7 +34,7 @@ class ThemedControl extends Component {
 const PreviewLayout = props => (
   <MdxPreview
     mdx={{
-      components: Styled,
+      // components: Styled,
       scope: MDXGlobalComponents,
       mdPlugins: [],
     }}
@@ -74,7 +70,7 @@ const ThemedPreview = props => {
   )
 }
 
-CMS.registerWidget("mdx", ThemedControl, ThemedPreview)
+CMS.registerWidget("mdx", Control, ThemedPreview)
 
 // Start the CMS
 init()

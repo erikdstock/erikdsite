@@ -5,7 +5,6 @@ import css from "@styled-system/css"
 import { theme } from "../../Theme"
 
 const { styles: htmlStyles } = theme
-console.warn(htmlStyles, "**********")
 
 export const StyledHTML: {
   [k: string]: React.ComponentClass<any>
